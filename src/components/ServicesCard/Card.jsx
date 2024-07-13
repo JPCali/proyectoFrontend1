@@ -1,11 +1,11 @@
-import "./Card.css";
+import "../Card.css";
 
-export function Card(options) {
+export function Card() {
   return (
     <div>
-      <image src={options}></image>
-      <h2>{options.title}</h2>
-      <p>{options.description}</p>
+      <image src=""></image>
+      <h2>Nombre</h2>
+      <p>Descripcion</p>
     </div>
   );
 }

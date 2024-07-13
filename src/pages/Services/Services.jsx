@@ -1,9 +1,10 @@
 import "./Card.css";
-import { Card } from "../../components/ServicesCard/Card";
+import { Card } from "../../components/servicesCard/Card";
 
 export function Card() {
   return (
     <>
+      <p>Services</p>
       <Card
         title="Service 1"
         description="This is a service 1 description"
