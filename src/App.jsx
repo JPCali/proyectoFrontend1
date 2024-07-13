@@ -5,18 +5,30 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [input, setInput] = useState("");
+  const [myPassword, setMyPassword] = useState("");
+
+  const password = "mi password";
 
   useEffect(() => {
-    if (count < 10) {
-      setCount((count) => count + 1);
+    if (myPassword === password) {
+      console.log("contraseña correcta");
+    } else {
+      console.log("contraseña incorrecta");
     }
-    console.log(count, "soy el useeffect");
-  }, [count, input]);
+  }, [myPassword]);
 
   const buttonClickHandler = () => {
-    setCount((count) => count + 1);
+    if (myPassword === password) {
+      alert("Contraseña correcta");
+    } else {
+      alert("Contraseña incorrecta");
+    }
   };
+
+  const passwordInputHandler = (event) => {
+    setMyPassword(event.target.value);
+  };
+
   return (
     <>
       <div>
@@ -29,11 +41,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={buttonClickHandler}>count is {count}</button>
+        <button onClick={buttonClickHandler}>comprobar contraseña</button>
         <input
           type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          className="password-input"
+          value={myPassword}
+          onChange={passwordInputHandler}
         />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
