@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Services } from "../Services/Services";
+// import { Services } from "../components/Services";
 import { Home } from "../Home/Home";
 export function Body() {
   return (
