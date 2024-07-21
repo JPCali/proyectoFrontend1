@@ -1,40 +1,29 @@
-import "./Card.css";
-import { Card } from "../../components/servicesCard/Card";
+import "./Services.css";
+import { Card } from "../../components/ServicesCard/Card";
+import { getAllServices } from "../../services/apiCalls";
+import { useEffect, useState } from "react";
 
-export function Card() {
+export function Services() {
+  const [services, setServices] = useState([]);
+
+  const getApiServices = async () => {
+    const response = await getAllServices();
+    setServices(response);
+  };
+
+  useEffect(() => {
+    getApiServices();
+  }, []);
+
+  // console.log(services);
+
   return (
     <>
-      <p>Services</p>
-      <Card
-        title="Service 1"
-        description="This is a service 1 description"
-        image="path/to/image"
-        link="https://example.com"
-      />
-      <Card
-        title="Service 2"
-        description="This is a service 2 description"
-        image="path/to/image"
-        link="https://example.com"
-      />
-      <Card
-        title="Service 3"
-        description="This is a service 3 description"
-        image="path/to/image"
-        link="https://example.com"
-      />
-      <Card
-        title="Service 4"
-        description="This is a service 4 description"
-        image="path/to/image"
-        link="https://example.com"
-      />
-      <Card
-        title="Service 5"
-        description="This is a service 5 description"
-        image="path/to/image"
-        link="https://example.com"
-      />
+      <p>Servicios</p>
+
+      {services.map((service) => (
+        <Card key={service.name} service={service} />
+      ))}
     </>
   );
 }

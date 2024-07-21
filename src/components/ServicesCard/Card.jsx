@@ -1,11 +1,13 @@
-import "../Card.css";
+export function Card({ service }) {
+  const onClickNameHandler = () => {
+    console.log(service);
+  };
 
-export function Card() {
   return (
     <div>
-      <image src=""></image>
-      <h2>Nombre</h2>
-      <p>Descripcion</p>
+      <img src=""></img>
+      <h2 onClick={onClickNameHandler}>Nombre: {service.service_name}</h2>
+      <p>Descripcion: {service.description}</p>
     </div>
   );
 }
